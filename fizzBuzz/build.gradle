@@ -1,0 +1,16 @@
+task wrapper(type: Wrapper) { gradleVersion = '2.6' }
+
+apply plugin: 'eclipse'
+apply plugin: 'scala'
+
+repositories { jcenter() }
+
+dependencies {
+	testCompile "org.scalatest:scalatest_2.10:2.1.5",
+		'org.mockito:mockito-core:1.+',
+		'org.hamcrest:hamcrest-all:1.+'
+}
+
+configurations {
+ 	all*.exclude module: 'hamcrest-core'
+}
