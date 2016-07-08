@@ -1,0 +1,10 @@
+#Eclipse stuff
+eclipse-workspace/
+.project
+.classpath
+.settings/
+**/bin/
+
+#Gradle
+.gradle/
+target
