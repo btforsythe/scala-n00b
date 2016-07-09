@@ -5,18 +5,19 @@ import org.scalatest.BeforeAndAfterEach
 import org.scalatest.BeforeAndAfter
 import org.scalatest.FunSpec
 import org.scalatest.GivenWhenThen
+import org.scalatest.FreeSpec
 
-class FizzBuzzTest extends FunSpec with GivenWhenThen {
+class FizzBuzzTest extends FreeSpec with GivenWhenThen {
 
 	var underTest: FizzBuzz = null
 
 	var studentResponse: String = null
 
-	describe("Maths class") {
+	"Maths class" - {
 
-		describe("should say the current number") {
+		"should say the current number" - {
 
-			describe("for the first number") {
+			"for the first number" in {
 
 				Given("the first student is pointed at")
 				underTest = new FizzBuzz
@@ -27,7 +28,7 @@ class FizzBuzzTest extends FunSpec with GivenWhenThen {
 				Then("he should say 1")
 				assert(studentResponse == "1")
 				
-			}			
+			}	
 		}
 	}
 }
