@@ -7,12 +7,14 @@ import org.scalatest.FunSpec
 import org.scalatest.GivenWhenThen
 import org.scalatest.FreeSpec
 
-class FizzBuzzTest extends FreeSpec with GivenWhenThen {
+class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 
 	var underTest: FizzBuzz = null
 
 	var studentResponse: String = null
 
+	override def beforeEach() = { underTest = new FizzBuzz }
+	
 	"Maths class" - {
 
 		"should say the current number" - {
@@ -20,15 +22,23 @@ class FizzBuzzTest extends FreeSpec with GivenWhenThen {
 			"for the first number" in {
 
 				Given("the first student is pointed at")
-				underTest = new FizzBuzz
-
-				When("the student speaks")
-				studentResponse = underTest.speak()
+				studentResponse = underTest.pointAtStudent()
 
 				Then("he should say 1")
 				assert(studentResponse == "1")
-				
-			}	
+
+			}
+
+			"for the second number" in {
+
+				Given("the second student is pointed at")
+				underTest.pointAtStudent()
+				studentResponse = underTest.pointAtStudent()
+
+				Then("he should say 2")
+				assert(studentResponse == "2")
+
+			}
 		}
 	}
 }
