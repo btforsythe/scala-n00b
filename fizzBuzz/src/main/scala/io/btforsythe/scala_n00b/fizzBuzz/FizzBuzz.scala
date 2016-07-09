@@ -9,6 +9,9 @@ class FizzBuzz {
 	
   def pointAtStudent() = {
   	current += 1
-  	"" + current
+  	
+  	if(current == 3) "fizz" else currentAsString
   }
+	
+	def currentAsString = { "" + current }
 }

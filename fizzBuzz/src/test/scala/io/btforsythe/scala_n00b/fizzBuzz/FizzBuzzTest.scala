@@ -40,5 +40,20 @@ class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 
 			}
 		}
+
+		"should say 'fizz'" - {
+
+			"for the third number" in {
+				
+				Given("the third student is pointed at")
+				underTest.pointAtStudent()
+				underTest.pointAtStudent()
+				studentResponse = underTest.pointAtStudent()
+
+				Then("he should say 'fizz'")
+				assert(studentResponse == "fizz")
+				
+			}
+		}
 	}
 }
