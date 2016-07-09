@@ -13,5 +13,5 @@ class FizzBuzz {
   	if(current == 3) "fizz" else currentAsString
   }
 	
-	def currentAsString = { "" + current }
+	def currentAsString:String = { s"$current" }
 }

@@ -7,6 +7,9 @@ import org.scalatest.FunSpec
 import org.scalatest.GivenWhenThen
 import org.scalatest.FreeSpec
 
+/**
+ * Don't like the capitalized method names, but sticking with the convention established by GivenWhenThen.
+ */
 class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 
 	var underTest: FizzBuzz = null
@@ -21,22 +24,17 @@ class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 
 			"for the first number" in {
 
-				Given("the first student is pointed at")
-				studentResponse = underTest.pointAtStudent()
+				GivenTheTeacherPointsAtStudent(1)
 
-				Then("he should say 1")
-				assert(studentResponse == "1")
+				ThenTheStudentShouldSay("1")
 
 			}
 
 			"for the second number" in {
 
-				Given("the second student is pointed at")
-				underTest.pointAtStudent()
-				studentResponse = underTest.pointAtStudent()
+				GivenTheTeacherPointsAtStudent(2)
 
-				Then("he should say 2")
-				assert(studentResponse == "2")
+				ThenTheStudentShouldSay("2")
 
 			}
 		}
@@ -45,15 +43,23 @@ class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 
 			"for the third number" in {
 				
-				Given("the third student is pointed at")
-				underTest.pointAtStudent()
-				underTest.pointAtStudent()
-				studentResponse = underTest.pointAtStudent()
+				GivenTheTeacherPointsAtStudent(3)
 
-				Then("he should say 'fizz'")
-				assert(studentResponse == "fizz")
-				
+				ThenTheStudentShouldSay("fizz")
 			}
 		}
+	}
+	
+	def GivenTheTeacherPointsAtStudent(nth:Int) = {
+		Given(s"the teacher points at student $nth")
+		for (i <- 1 until nth) {
+			underTest.pointAtStudent()
+		} 
+		studentResponse = underTest.pointAtStudent()
+	}
+	
+	def ThenTheStudentShouldSay(expectedResponse:String) = {
+		Then(s"he should say '$expectedResponse'")
+		assert(studentResponse == expectedResponse)
 	}
 }
