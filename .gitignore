@@ -4,7 +4,9 @@ eclipse-workspace/
 .classpath
 .settings/
 **/bin/
+.cache-main
+.cache-tests
 
 #Gradle
 .gradle/
-target
+build/
