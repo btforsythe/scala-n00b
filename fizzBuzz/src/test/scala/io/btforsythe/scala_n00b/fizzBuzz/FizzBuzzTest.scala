@@ -1,11 +1,9 @@
 package io.btforsythe.scala_n00b.fizzBuzz
 
-import org.scalatest.Spec
 import org.scalatest.BeforeAndAfterEach
-import org.scalatest.BeforeAndAfter
-import org.scalatest.FunSpec
-import org.scalatest.GivenWhenThen
+import org.scalatest.Finders
 import org.scalatest.FreeSpec
+import org.scalatest.GivenWhenThen
 
 /**
  * Don't like the capitalized method names, but sticking with the convention established by GivenWhenThen.
@@ -46,6 +44,16 @@ class FizzBuzzTest extends FreeSpec with GivenWhenThen with BeforeAndAfterEach {
 				GivenTheTeacherPointsAtStudent(3)
 
 				ThenTheStudentShouldSay("fizz")
+			}
+		}
+		
+		"should say 'buzz'" - {
+		
+			"for the fifth number" in {
+			
+				GivenTheTeacherPointsAtStudent(5)
+				
+				ThenTheStudentShouldSay("buzz")
 			}
 		}
 	}

@@ -10,7 +10,11 @@ class FizzBuzz {
   def pointAtStudent() = {
   	current += 1
   	
-  	if(current == 3) "fizz" else currentAsString
+  	current match {
+  		case 3 => "fizz"
+  		case 5 => "buzz"
+  		case _ => currentAsString
+  	}
   }
 	
 	def currentAsString:String = { s"$current" }
